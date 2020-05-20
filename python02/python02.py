@@ -1,4 +1,4 @@
-filename = input(' Please, enter a path to a file: ')
+filename = input(' Please, enter a path to file: ')
 f = open(filename)
 
 while True:
