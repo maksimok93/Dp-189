@@ -6,6 +6,7 @@ or using specified range of numbers in which there can be fibonacci numbers.
 """
 
 
+
 def fib_formula(n):
     """First way of finding fibonacci numbers - calculation formula."""
     if n <= 1:
