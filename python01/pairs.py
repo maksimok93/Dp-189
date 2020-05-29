@@ -1,8 +1,4 @@
-def main():
-    iterate_all_pairs()
-
-
-def create_list(*args):
+def create_list(*args) -> list:
     """Creating a list of entered numbers"""
     num = input("Enter the numbers: ").split()
     entered_numbers = []
@@ -25,4 +21,4 @@ def iterate_all_pairs():
 
 
 if __name__ == '__main__':
-    main()
+    iterate_all_pairs()
