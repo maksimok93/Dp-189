@@ -1,68 +1,68 @@
+class FileStatistic:
+    @staticmethod
+    def total_lines(file):
+        """Counting the number of all lines in a file."""
+        total_line = 0
+        for line in file:
+            total_line += 1
+        return total_line
+
+    @staticmethod
+    def number_of_empty_lines(file):
+        """Counting empty lines."""
+        empty_line = 0
+        for line in file:
+            if len(line) == 1:
+                empty_line += 1
+        return empty_line
+
+    @staticmethod
+    def lines_with_z(file):
+        """Output the number of lines with 'z'."""
+        z_line = 0
+        for line in file:
+            if 'z' in line:
+                z_line += 1
+        return z_line
+
+    @staticmethod
+    def z_count(file):
+        """Counting the number of all occurrences of 'z'."""
+        sum_z = 0
+        for line in file:
+            for letter in line:
+                if letter == 'z':
+                    sum_z += 1
+        return sum_z
+
+    @staticmethod
+    def lines_with_and(file):
+        """Counting the number of lines containing 'and'."""
+        and_string = 0
+        for line in file:
+            if 'and' in line:
+                and_string += 1
+        return and_string
+
+
 def main():
-    print("total lines: ", '{:>6}'.format(total_lines_()))
-    print("empty lines: ", '{:>6}'.format(number_of_empty_lines_()))
-    print("lines with 'z':", '{:>4}'.format(lines_with_z_()))
-    print("'z' count:", '{:>9}'.format(z_count_()))
-    print("lines with 'and': ", lines_with_and_())
-
-
-def total_lines_():
-    """ Counting the number of all lines in a file """
-    f = open(filename)
-    total_line = 0
-    for line in f:
-        total_line += 1
-    return total_line
-
-
-def number_of_empty_lines_():
-    """ counting empty lines """
-    f = open(filename)
-    empty_line = 0
-    for line in f:
-        if len(line) == 1:
-            empty_line += 1
-    return empty_line
-
-
-def lines_with_z_():
-    """ Output the number of lines with 'z' """
-    f = open(filename)
-    z_line = 0
-    for line in f:
-        if 'z' in line:
-            z_line += 1
-    return z_line
-
-
-def z_count_():
-    """ counting the number of all occurrences of 'z' """
-    f = open(filename)
-    sum_z = 0
-    for line in f:
-        for letter in line:
-            if letter == 'z':
-                sum_z += 1
-    return sum_z
-
-
-def lines_with_and_():
-    """ counting the number of lines containing 'and' """
-    f = open(filename)
-    and_string = 0
-    for line in f:
-        if 'and' in line:
-            and_string += 1
-    return and_string
+    filename = input('Please, enter a path to file: ')
+    with open(filename, 'r') as file:
+        print("total lines: ", '{:>6}'.format(FileStatistic.total_lines(file)))
+        file.seek(0)
+        print("empty lines: ", '{:>6}'.format(FileStatistic.number_of_empty_lines(file)))
+        file.seek(0)
+        print("lines with 'z':", '{:>4}'.format(FileStatistic.lines_with_z(file)))
+        file.seek(0)
+        print("'z' count:", '{:>9}'.format(FileStatistic.z_count(file)))
+        file.seek(0)
+        print("lines with 'and': ", FileStatistic.lines_with_and(file))
+        file.close()
 
 
 if __name__ == '__main__':
     while True:
-        filename = input('Please, enter a path to file: ')
-        f = open(filename)
         main()
-
         response = input("If one more file needs to be analyzed? (Yes or No) : ").lower()
         if response != 'yes' and response != 'y':
-            f.close()
             break
