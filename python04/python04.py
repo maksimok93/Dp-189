@@ -59,7 +59,7 @@ def main_menu():
             break
         except:
             print("Please, input the correct integer value! ")
-    tasks = [list(map(int, input("Enter a, m, b using space: ").split())) for i in range(n)]
+    tasks = [list(map(int, input("Enter best-case, most-case and worst-case using space: ").split())) for i in range(n)]
     task_estimates = []
     task_sd = []
     for task in tasks:
