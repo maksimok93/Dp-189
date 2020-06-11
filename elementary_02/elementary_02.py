@@ -1,4 +1,12 @@
-def checking_correct_input():
+"""
+The program determines whether the envelope (with 'a' and 'b' side)
+can be inserted into another envelope (with 'c' and 'd' side).
+After each calculation, the program asks the user if he wants to continue.
+"""
+
+
+def check_correct_input():
+    """Checking user input of positive numbers."""
     a = input("Enter the 1st side of 1st envelope: ")
     b = input("Enter the 2nd side of 1st envelope: ")
     c = input("Enter the 1st side of 2nd envelope: ")
@@ -25,32 +33,29 @@ def checking_correct_input():
 
 
 def check_envelope_sides():
-    a, b, c, d = checking_correct_input()
+    """Comparing the lengths of the sides of envelopes for the possibility of inserting."""
+    a, b, c, d = check_correct_input()
     if d > c:
         if (c <= a and c <= b) and (d <= a or d <= b):
-            print("The 2nd envelope can be placed in the 1st.")
+            return "The 2nd envelope can be placed in the 1st."
         else:
-            print("The 2nd envelope can't be placed in the 1st")
+            return "The 2nd envelope can't be placed in the 1st"
 
     elif c > d:
         if (d <= a and d <= b) and (c <= a or c <= b):
-            print("The 2nd envelope can be placed in the 1st.")
+            return "The 2nd envelope can be placed in the 1st."
         else:
-            print("The 2nd envelope can't be placed in the 1st")
+            return "The 2nd envelope can't be placed in the 1st"
     else:
         if (d <= a and d <= b) and (c <= a and c <= b):
-            print('OK')
+            return "The 2nd envelope can be placed in the 1st."
         else:
-            print('not OK')
-
-
-def main():
-    while True:
-        check_envelope_sides()
-        response = input('Would you like to run the program again (Yes / No)? ').lower()
-        if response != 'yes' and response != 'y':
-            break
+            return "The 2nd envelope can't be placed in the 1st"
 
 
 if __name__ == '__main__':
-    main()
+    while True:
+        print(check_envelope_sides())
+        response = input('Would you like to run the program again (Yes / No)? ').lower()
+        if response != 'yes' and response != 'y':
+            break

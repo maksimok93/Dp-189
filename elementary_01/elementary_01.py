@@ -1,30 +1,28 @@
 def figure_size_input():
     """To create a figure we need to input its dimensions."""
-    a = input("Enter the height of the picture: ")
-    b = input("Enter the width of the picture: ")
+    height = input("Enter the height of the picture: ")
+    width = input("Enter the width of the picture: ")
 
     while True:
         try:
-            a = int(a)
-            b = int(b)
+            height = int(height)
+            width = int(width)
             break
         except:
             print("Please, input the correct values! ")
-            a = input("Enter the height of the picture: ")
-            b = input("Enter the width of the picture: ")
-    return a, b
+            height = input("Enter the height of the picture: ")
+            width = input("Enter the width of the picture: ")
+    return height, width
 
 
 def get_board():
     """This function iterates entered dimensions using space and symbol '*' as strings."""
-    symbol = '*'
-    space = ' '
-    a, b = figure_size_input()
-    for item in range(1, a + 1):
+    height, width = figure_size_input()
+    for item in range(1, height + 1):
         if (item + 2) % 2 == 0:
-            print(b * (space + symbol))
+            print(width * (' *'))
         else:
-            print(b * (symbol + space))
+            print(width * ('* '))
 
 
 if __name__ == '__main__':
