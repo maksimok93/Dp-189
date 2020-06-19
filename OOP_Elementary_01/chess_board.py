@@ -25,6 +25,11 @@ if __name__ == '__main__':
         try:
             height = int(input("Enter the height of the picture: "))
             width = int(input("Enter the width of the picture: "))
+
+            if height <= 0:
+                raise ValueError
+            elif width <= 0:
+                raise ValueError
             break
         except ValueError:
             print("Please, input the correct values! ")
